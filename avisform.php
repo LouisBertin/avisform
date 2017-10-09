@@ -92,8 +92,11 @@ class Avisform extends Module
             $this->postProcess();
         }
 
+        // vars
         $this->context->smarty->assign('module_dir', $this->_path);
+        $this->context->smarty->assign('data', "welcome");
 
+        // render view
         $output = $this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');
 
         return $output.$this->renderForm();
@@ -163,6 +166,10 @@ class Avisform extends Module
     {
         $titre = $_POST['title'];
         $contenu = $_POST['contenu'];
+
+        if (strlen($titre) < 3 || strlen($contenu < 3)) {
+            return false;
+        }
 
         Db::getInstance()->insert('avisform', array(
             'titre'      => $titre,

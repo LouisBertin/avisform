@@ -36,3 +36,7 @@
 	</p>
 </div>
 
+<div class="panel">
+	{$data}
+</div>
+
