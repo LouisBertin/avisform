@@ -172,10 +172,17 @@ class Avisform extends Module
         $titre = $_POST['title'];
         $contenu = $_POST['contenu'];
 
-        if (strlen($titre) < 3 || strlen($contenu < 3)) {
+        /**
+         * check titre and contenu length
+         */
+        if (strlen($titre) < 3) {
+            return false;
+        }
+        if (strlen($contenu) < 3) {
             return false;
         }
 
+        // insert
         Db::getInstance()->insert('avisform', array(
             'titre'      => $titre,
             'contenu'      => $contenu,

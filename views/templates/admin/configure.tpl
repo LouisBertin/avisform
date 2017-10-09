@@ -38,15 +38,18 @@
 
 <div class="panel">
     <h3>Liste des avis</h3>
-    <table id="avis-list">
-        <thead>
+    {if empty($allAvis)}
+        <p>Vous n'avez pas encore d'avis clients !</p>
+    {else}
+        <table id="avis-list">
+            <thead>
             <tr>
                 <td>Titre</td>
                 <td>Contenu</td>
                 <td>Date</td>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             {foreach $allAvis as $avis}
                 <tr>
                     <td>{$avis.titre}</td>
@@ -54,7 +57,8 @@
                     <td>{$avis.date}</td>
                 </tr>
             {/foreach}
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    {/if}
 </div>
 
