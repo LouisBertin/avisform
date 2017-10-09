@@ -212,6 +212,16 @@ class Avisform extends Module
 
     public function hookDisplayHome()
     {
-        /* Place your code here. */
+        // get one random customer review
+        $sql = 'SELECT * FROM `'._DB_PREFIX_.'avisform` ORDER BY RAND()';
+        $avis = Db::getInstance()->getRow($sql);
+
+        if (!empty($avis)){
+            $this->context->smarty->assign('avis', $avis);
+        }
+
+        $output = $this->context->smarty->fetch($this->local_path.'views/templates/public/front.tpl');
+
+        return $output;
     }
 }
