@@ -27,7 +27,9 @@
     <h2>Un avis client au hasard</h2>
     <hr>
 
-    <h3>{$avis.titre}</h3>
-    <p>{$avis.contenu}</p>
+    {if !empty($avis)}
+        <h3>{$avis.titre}</h3>
+        <p>{$avis.contenu}</p>
+    {/if}
 </div>
 
