@@ -92,9 +92,14 @@ class Avisform extends Module
             $this->postProcess();
         }
 
+        // getAll Avis
+        $sql = 'SELECT * FROM `'._DB_PREFIX_.'avisform` ';
+        $allAvis = Db::getInstance()->ExecuteS($sql);
         // vars
         $this->context->smarty->assign('module_dir', $this->_path);
-        $this->context->smarty->assign('data', "welcome");
+        if (!empty($allAvis)){
+            $this->context->smarty->assign('allAvis', $allAvis);
+        }
 
         // render view
         $output = $this->context->smarty->fetch($this->local_path.'views/templates/admin/configure.tpl');

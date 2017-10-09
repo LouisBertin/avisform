@@ -25,3 +25,11 @@
 * Don't forget to prefix your containers with your own identifier
 * to avoid any conflicts with others containers.
 */
+
+#avis-list {
+    width: 100%;
+}
+
+#avis-list thead td {
+    font-weight: bold;
+}

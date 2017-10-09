@@ -37,6 +37,24 @@
 </div>
 
 <div class="panel">
-	{$data}
+    <h3>Liste des avis</h3>
+    <table id="avis-list">
+        <thead>
+            <tr>
+                <td>Titre</td>
+                <td>Contenu</td>
+                <td>Date</td>
+            </tr>
+        </thead>
+        <tbody>
+            {foreach $allAvis as $avis}
+                <tr>
+                    <td>{$avis.titre}</td>
+                    <td>{$avis.contenu}</td>
+                    <td>{$avis.date}</td>
+                </tr>
+            {/foreach}
+        </tbody>
+    </table>
 </div>
 
